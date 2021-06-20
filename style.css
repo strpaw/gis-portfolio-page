@@ -1,0 +1,33 @@
+html {
+font-size: 15px;
+
+}
+
+body {
+  margin: auto;
+}
+
+#home-header {
+  width: 100%;
+  margin: 0px auto;
+  background-color: #b3b3b3;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#home-title {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: white;
+  font-size: 3em;
+}
+
+#home-websites {
+  margin: 0px;
+  text-align: center;
+  color: blue;
+  font-size: 1.3em;
+}
