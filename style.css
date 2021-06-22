@@ -43,7 +43,7 @@ body {
 
 .navbar a {
   display: inline-block;
-  color: black;
+  color: #4d4d4d;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -56,4 +56,11 @@ body {
 
 .main {
     margin-top: 30px;
+}
+
+
+.home-text {
+  text-align: center;
+  color: #4d4d4d;
+  font-size: 1.2em;
 }
