@@ -84,7 +84,7 @@ background-position: center;
 }
 
 .plugin-summary a {
-  display:block;
+  display: inline-block;
   color: #4d4d4d;
   text-decoration: none;
   font-size: 1.5em;
@@ -94,4 +94,56 @@ background-position: center;
 
 .plugin-summary p {
   margin: 0px;
+}
+
+.qgis-plugin-help-body {
+  background-color: #e6e6e6;
+}
+
+#help-menu {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#help-content {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  width: 1200px;
+}
+
+.help-menu-items {
+  list-style-type: none;
+  padding-left: 10px;
+
+}
+
+
+.sample-data, .log-example {
+  padding: 5px;
+  background-color: white;
+  font-family: "Courier new";
+  max-width: 1100px;
+  overflow-x: auto;
+}
+
+
+.plugin-help-title {
+  display: inline-block;
+}
+
+
+.img_usage_steps {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.img_desc_example {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>QGIS3 Plugin Polygons From CSV help version 0.1</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="qgis-plugin-help-body">
+    <div id="help-header">
+      <h2 class="plugin-help-title">Polygons From CSV</h2><span>&nbspversion 0.1</span>
+    </div>
+    <div id="help-menu" class="">
+      <h3>Table of contents</h3>
+      <ul class="help-menu-items">
+        <li><a href="#description">Description</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#coord_formats">Supported coordinate formats</a></li>
+        <li><a href="#input_structure">Input data structure</a></li>
+        <li><a href="#output_structure">Output data structure</a></li>
+        <li><a href="#log_file">Import log file</a></li>
+      </ul>
+    </div>
+
+    <div id="help-content" class="">
+      <h2 id="description">Description</h2>
+        <p>PolygonsFromCSV plugin allows user to create polygons based on polygon name (ident) and vertices (nodes) coordinates stored in CSV (comma-separated values) file.</p>
+        <img src="images/polygons_from_csv_usage_example.png" alt="" class="img_desc_example">
+        <p>GitHub repository: <a href="https://github.com/strpaw/QGIS3-Plugin-PolygonsFromCSV">PolygonsFromCSV</a></p>
+
+      <h2 id="usage">Usage</h2>
+        <p>To create polygons from CSV file just:</p>
+        <ol>
+          <li>Open PolygonsFromCSV plugin.</li>
+          <li>Click button <img src="images/polygons_from_csv_select_file_btn.png" alt=""> to select an input CSV file.</li>
+          <li>The plugin will automatically detect CSV fields based on a specified delimiter by drop down list<br>
+              You can change the delimiter to the one that corresponds to the actual delimiter in the input CSV file.</li>
+              <img src="images/polygons_from_csv_set_delimiter.png" alt="" class="img_usage_steps">
+          <li>Use drop down lists to assign CSV fields to variables that will construct polygons: Polygon name, Longitude, Latitude.</li>
+          <img src="images/polygons_from_csv_assign_csv_fields.png" alt="" class="img_usage_steps">
+          <li>Press button <img src="images/polygons_from_csv_create_polygons_btn.png" alt=""> to create polygons.</li>
+          <li>Memory layer with polygons will be added to the map canvas.<br>
+              Notice that the name of the memory layer is created automatically according to pattern:<br>
+              <i>[year]_[month]_[day_of_month]_[hour][minute][microsecond as a decimal number]</i> example: <i>2021_03_15_0741401160</i></li>
+          <li>Click button with path to import log file to see the log.</li>
+          <img src="images/polygons_from_csv_open_log.png" alt="" class="img_usage_steps">
+        </ol>
+      <h2 id="coord_formats">Supported coordinate formats</h2>
+        <p>Following coordinate formats are supported:</p>
+          <ul>
+            <li>Decimal Degrees (DD), example:<i> 55.50</i></li>
+            <li>Degrees, Minutes, Seconds (DMS), with a hemisphere (direction) prefix or suffix separated,  example: <i>55 30 00.00N, 55 30 00.00 N, N55 30 00.00, N 55 30 00.00</i></li>
+            <li>Degrees, Minutes, Seconds (DMS), with a hemisphere (direction) prefix or suffix compacted,  example: <i>553000.00N, 553000.00N</i></li>
+          </ul>
+      <h2 id="input_structure">Input data structure</h2>
+        <ul>
+          <li>Input data is in CSV file format</li>
+          <li>Delimiters: comma or semicolon</li>
+          <li>At least three CSV fields required for: polygon name (ident), longitude, latitude</li>
+          <li>Vertices that form polygon should have the same polygon name (ident) value</li>
+        </ul>
+
+      <p>Examples:</p>
+       <ul>
+         <li>One polygon - first and last vertex (node) are the same, coordinates in DD format:</li>
+         <pre class="sample-data">
+polygon_name;lon;lat
+TEST1;17.71691118216151395;54.51085314802783444
+TEST1;18.04872820768914465;54.41201403404087955
+TEST1;17.90046953670871233;54.24963548963373938
+TEST1;17.71691118216151395;54.51085314802783444</pre>
+         <li>Three polygons, vertices for each polygon in different coordinate formats:</li>
+          <pre class="sample-data">
+polygon_name;lon;lat
+test_dmsh;015 52 33.965 E;55 19 26.678 N
+test_dmsh;015 57 24.954 E;55 19 40.212 N
+test_dmsh;015 59 40.298 E;55 16 51.032 N
+test_dmsh;015 59 33.531 E;55 13 21.249 N
+test_dmsh;015 57 18.187 E;55 12 00.043 N
+test_dmsh;015 54 42.542 E;55 11 05.906 N
+test_dmsh;015 52 33.965 E;55 19 26.678 N
+test_dmsh_comp;0160814.604E;551651.032N
+test_dmsh_comp;0162328.175E;551529.826N
+test_dmsh_comp;0162254.339E;551200.043N
+test_dmsh_comp;0162133.132E;551011.768N
+test_dmsh_comp;0161749.815E;550823.493N
+test_dmsh_comp;0160929.043E;551401.853N
+test_dmsh_comp;0160814.604E;551651.032N
+test_hdms;E015 52 47.500;N55 05 37.697
+test_hdms;E016 00 20.901;N55 08 47.178
+test_hdms;E016 02 36.245;N55 09 21.014
+test_hdms;E016 05 05.123;N55 08 40.411
+test_hdms;E016 07 40.768;N55 07 32.739
+test_hdms;E016 10 02.879;N55 06 11.533
+test_hdms;E016 12 24.990;N55 05 10.628
+test_hdms;E016 14 26.800;N55 04 09.724
+test_hdms;E016 15 20.937;N55 03 49.422
+test_hdms;E016 15 48.006;N55 00 53.475
+test_hdms;E016 14 20.032;N54 58 58.433
+test_hdms;E016 11 10.551;N54 56 56.624
+test_hdms;E016 08 41.673;N54 56 16.021
+test_hdms;E016 05 45.726;N54 56 02.486
+test_hdms;E016 03 23.615;N54 56 49.857
+test_hdms;E016 00 27.668;N54 57 37.227
+test_hdms;E015 57 38.489;N54 59 11.968
+test_hdms;E015 55 50.214;N55 00 26.407
+test_hdms;E015 55 43.447;N55 00 39.941
+test_hdms;E015 52 47.500;N55 05 37.697</pre>
+       </ul>
+      <h2 id="output_structure">Output data structure</h2>
+        <p>Polygons are stored in memory layer with one field: POLE_NAME, type sting, lenght 100.</p>
+        <img src="images/polygons_from_csv_output.png" alt="">
+      <h2 id="log_file">Import log file</h2>
+        <p>Import log file is created in the same directory as input csv file.<br>
+        Following rule is apllied to create import log file name:
+        <i>[year]-[month]-[day_of_month]-[hour][minute][second]_Import_[input CSV file name].log</i> example: 2021-03-21-222206_Import_Polygons.log<br>
+          Import log file contains following information:
+          <ul>
+            <li>Input data file full path</li>
+            <li>Polygon name (ident) and number of vertices if polygon is added to the ouptut layer</li>
+            <li>In case there is not possible to create vertex or polygon from input data - one of the following reasons will be in file:</li>
+              <ul>
+                <li>There are not enough vertices to create polygon</li>
+                <li>There is a missing field for data such as longitude and/or latitude</li>
+                <li>Field is empty - contains only blank characters</li>
+                <li>Coordinate is incorrect or in not supported format</li>
+              </ul>
+          </ul>
+        <p>Examples</p>
+        <ul>
+          <li>CSV data is correct - no 'missing' or empty fields, no incorrect or not supported coordinate formats</li>
+          <pre class="log-example">
+2021-03-21 15:56:00.934063 | INFO | Importing polygons from file C:\test_data\Polygons.csv started.
+2021-03-21 15:56:00.951823 | INFO | Polygon added to output layer. Polygon test1_dd, vertices count 7.
+2021-03-21 15:56:00.956806 | INFO | Polygon added to output layer. Polygon test2_dd, vertices count 7.
+2021-03-21 15:56:00.962377 | INFO | Polygon added to output layer. Polygon test3_hdms_comp, vertices count 20.
+2021-03-21 15:56:00.967361 | INFO | Polygon added to output layer. Polygon test4_dd, vertices count 20.
+2021-03-21 15:56:00.973726 | INFO | Polygon added to output layer. Polygon test5_dmsh_all_sep, vertices count 51.
+2021-03-21 15:56:00.979058 | INFO | Polygon added to output layer. Polygon test6_hdms_all_sep, vertices count 10.
+2021-03-21 15:56:00.985042 | INFO | Polygon added to output layer. Polygon test7_dd, vertices count 109.
+2021-03-21 15:56:00.990024 | INFO | Polygon added to output layer. Polygon test8_dmsh_comp, vertices count 9.</pre>
+            <li>Missing fields, empty field:</li>
+            <p>Input data:<br>
+            CSV file header:</p>
+            <pre class="sample-data">ident;latitude;longitude</pre>
+            <p>Data file sample:</p>
+            <pre class="sample-data">
+test11_dd;55.2808422982;15.9945272716
+;55.2225693033;15.9926474976
+test11_dd;55.2000120149;15.955052017
+test11_dd;55.1849738227;15.9118172144
+test11_dd;55.3240771008;15.8761015078
+test21_dd;55.2808422982;16.1373900979
+test21_dd;55.2582850098;16.3911595918
+test21_dd;;
+test21_dd;55.1699356304;16.3592034333
+test21_dd;
+test21_dd;55.2338479474;16.1580676122
+test21_dd;55.2808422982;16.1373900979</pre>
+            <p>Log:</p>
+            <pre class="log-example">
+2021-03-21 22:29:53.717796 | INFO | Polygon added to output layer. Polygon test8_dmsh_comp, vertices count 9.
+2021-03-21 22:29:53.762172 | INFO | Polygon added to output layer. Polygon test9_hdms_comp, vertices count 1494.
+2021-03-21 22:29:53.823338 | INFO | Polygon added to output layer. Polygon test10_dmsh_all_sep, vertices count 1332.
+2021-03-21 22:29:53.829218 | ERROR | Empty field ident.  OrderedDict([('ident', ''), ('latitude', '55.2225693033'), ('longitude', '15.9926474976')])
+2021-03-21 22:29:53.834656 | INFO | Polygon added to output layer. Polygon test11_dd, vertices count 6.
+2021-03-21 22:29:53.839758 | ERROR | Empty field latitude. Empty field longitude.  OrderedDict([('ident', 'test21_dd'), ('latitude', ''), ('longitude', '')])
+2021-03-21 22:29:53.845301 | ERROR | Empty field latitude. Missing field longitude.  OrderedDict([('ident', 'test21_dd'), ('latitude', ''), ('longitude', None)])
+2021-03-21 22:29:53.850847 | INFO | Polygon added to output layer. Polygon test21_dd, vertices count 5.</pre>
+        </ul>
+    </div>
+  </body>
+</html>
