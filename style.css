@@ -144,3 +144,7 @@ background-position: center;
   margin-right: auto;
   display: block;
 }
+
+.qgis-plugins-hr {
+  width: 33%;
+}
