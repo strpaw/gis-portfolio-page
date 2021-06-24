@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>QGIS3 Plugin Plain text to geometry help version 0.1</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="qgis-plugin-help-body">
+
+    <div id=id="help-header">
+      <h2 class="plugin-help-title">PlainTextToGeometry</h2><span>&nbspversion 0.1</span>
+    </div>
+
+    <div id="help-menu">
+      <h3>Table of contents</h3>
+        <ul class="help-menu-items">
+          <li><a href="#description">Description</a></li>
+          <li><a href="#usage">Usage</a></li>
+        </ul>
+
+    </div>
+
+    <div id="help-content">
+      <h2 id="description">Description</h2>
+        <p>Plugin PlainTextToGeometry allows user swiftly extract coordinates from plain text  and create points, lines or polygons.<br>
+           It might be very useful in cases where there is a need to create spatial features based on textual description of geographic features as plain text, for example<br>
+		   from aeronautical publication such as eAIP (electronic Aeronautical Information Publication), NOTAM (Notice To AirMen) or any other data<br> with coordinates and this data is not
+		   structurated well such as CSV or DAT files.
+        </p>
+		    <p>GitHub repository: <a href="https://github.com/strpaw/QGIS3-Plugin-PlainTextToGeometry">PlainTextToGeometry</a></p>
+
+      <h2 id="usage">Usage</h2>
+        <p>To extract coordinates from plain text and create feature just:</p>
+          <ol>
+            <li>Open PlainTextToGeometry plugin</li>
+            <li>Enter text with coordinates into Plain text area:</li>
+              <img src="images/plaintext_to_geometry_text_example.png" alt="" class="img_usage_steps">
+            <li>Define coordinates pair format that you want to extract:</li>
+              <img src="images/plaintext_to_geometry_cpair_definition.png" alt="" class="img_usage_steps">
+              <p>Notice that when you set Sequence, Lon, lat separator, Format example of coordinates pair will be shown:</p>
+              <img src="images/plaintext_to_geometry_cpair_example.png" alt="" class="img_usage_steps">
+            <li>Set output layer name, geometry type and name for the feature created from extracted coordinats.<br>
+                In case output layer geometry type is Point - give name that will be used as prefix for point names. <br>
+                Each point names will be in pattern: <i>[prefix_by_user]_[number]</i> where <i>number</i> is automatically generated from 1 to number of extracted point.</li>
+              <img src="images/plaintext_to_geometry_feat_output_definition.png" alt="" class="img_usage_steps">
+            <li>Press button <img src="images/plaintext_to_geometry_btn_text_to_geom.png" alt=""> to find coordinates and create feature(s).</li>
+            <li>If maching coordinates found in plain text:
+              <ul>
+                <li>Coordinates will be marked as green in plain text field</li>
+                <li>Coordinates list will be populated</li>
+                <li>Feature(s) will be added to map</li>
+              </ul><br>
+              <img src="images/plaintext_to_geometry_polygon_example.png" width="1000px" height="auto" alt="">
+			  <p>As a result following polygon has been created and added to map canvas:</p>
+			  <img src="images/plaintext_to_geometry_polygon_example_output.png" alt="">
+            </li>
+          </ol>
+
+    </div>
+
+  </body>
+</html>
