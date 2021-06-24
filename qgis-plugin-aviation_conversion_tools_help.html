@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>QGIS3 Plugin Aviation Conversion Tools help version 0.1</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="qgis-plugin-help-body">
+    <div id="help-header">
+      <h2 class="plugin-help-title">Aviation Conversion Tools</h2><span>&nbspversion 0.1</span>
+    </div>
+
+    <div id="help-menu" class="">
+      <h3>Table of contents</h3>
+      <ul class="help-menu-items">
+        <li><a href="#description">Description</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#coord_formats">Supported coordinates formats</a></li>
+        <ul class="help-menu-items">
+          <li><a href="#to_dd">Coordinats - to decimal degress</a></li>
+          <li><a href="#to_dms">Coordinates - from decimal degress</a></li>
+          <li><a href="#encode_arinc424">Encode ARINC424</a></li>
+      </ul>
+    </div>
+
+    <div id="help-content" class="">
+      <h2 id="description">Description</h2>
+        <p>Aviation Conversion Tool plugin allows user to convert values such as distance, coordinate and speed
+         among various formats and units of measure that are commonly used in aviation industry.</p>
+         <img src="images/aviation_conversion_tools.png" alt="" class="img_desc_example">
+         <p>GitHub repository: <a href="https://github.com/strpaw/QGIS3-Plugin-AviationConverterTool">AviationConverterTool</a></p>
+
+      <h2 id="usage">Usage</h2>
+        <p>To convert value from one unit of measure to another one or from one format to another one just:</p>
+        <ol>
+          <li>Enter value in soource/original unit of measure or format.</li>
+          <li>Choose soource/original and desired unit of measure if necessary - for distance and speeds conversion.</li>
+          <li>Hit convert button <img src="images/aviation_conversion_tools_btn_convert.png" alt=""> to convert value to desired unit of measure or format.</li>
+        </ol>
+
+        <p> In case source value is not valid or in not supported format (example longitude), message with error will be shown, for example:</p>
+          <ul>
+            <li>Distance error - positive number required</li>
+              <img src="images/aviation_conversion_distance_value_error.png" alt="" class="img_usage_steps">
+            <li>Latitude not supperted format:</li>
+              <img src="images/aviation_conversion_not_supported_format.png" alt="" class="img_usage_steps">
+          </ul>
+        <p>For more information about supported coordnate formats refer to Supported coordinates formats chapter.</p>
+
+        <h2 id="#coord_formats">Supported coordinates formats</h2>
+        <p>Supported coordinate formats:</p>
+          <h3 id="to_dd">Coordinates - to decimal degrees</h3>
+            <p>Following coordinates format are supported when converting from DMS (degrees, minutes, second) to DD (decimal degrees):</p>
+            <ul>
+              <li>degrees, minutes seconds (DMS) 'compacted' with direction (hemisphere) prefix and sufix, examples: S233021.5555, 1233021.5555W</li>
+              <li>degrees, minutes seconds (DMS) 'separated' with direction (hemisphere) prefix and sufix, examples: W 003 09 02.111, 3 9 2.111N</li>
+            </ul>
+          <h3 id="to_dms">Coordinates - from decimal degress</h3>
+            <p>Decimal degrees format is only allowed, examples: <i>23.5555, -123.5555</i> </p>
+          <h3 id="encode_arinc424">Encode ARINC424</h3>
+            <ul>
+              <li>longitude: DDDH, example: <i>020E, 121W</i></li>
+              <li>latitude: DDH, example: <i>67N, 03S</i></li>
+            </ul>
+    </div>
+
+  </body>
+</html>
