@@ -75,3 +75,23 @@ background-image: url('images/plugins-header.png'); height: 120px;
 background-repeat: no-repeat;
 background-position: center;
 }
+
+.plugin-summary {
+  color: #4d4d4d;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.plugin-summary a {
+  display:block;
+  color: #4d4d4d;
+  text-decoration: none;
+  font-size: 1.5em;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.plugin-summary p {
+  margin: 0px;
+}
