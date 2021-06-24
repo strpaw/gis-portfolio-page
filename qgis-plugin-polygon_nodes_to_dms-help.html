@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>QGIS3 Plugin PolygonNodesToDMS help version 0.1</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="qgis-plugin-help-body">
+
+    <div id="help-header">
+      <h2 class="plugin-help-title">PolygonNodesToDMS</h2><span>&nbspversion 0.1</span>
+    </div>
+
+    <div id="help-menu" class="">
+      <h3>Table of contents</h3>
+      <ul class="help-menu-items">
+        <li><a href="#description">Description</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#usage_examples">Usage examples</a></li>
+      </ul>
+    </div>
+
+    <div id="help-content" class="">
+        <h2 id="description">Description</h2>
+          <p>PolygonNodesToDMS allows user to display polygon nodes (vertices) in DMS format.<br>
+          Degrees, minutes, second format is widely uesd for example in aviation industry and charting to describe airspace shape.</p>
+          <img src="images/polygon_nodes_to_dms.png" width="1000px" height="auto" alt="" class="img_desc_example">
+          <p>GitHub repository: <a href="https://github.com/strpaw/QGIS3-PolygonNodesToDMS">PolygonNodesToDMS</a></p>
+        <h2 id="usage">Usage</h2>
+          <p>To display polygon nodes in DMS format:</p>
+            <ol>
+              <li>Open PolygonNodesToDMS plugin.</li>
+              <li>Ensure that active layer has Polygon, Multipolygon geometry type.</li>
+              <li>Select one polygon (multipolygon).</li>
+              <li>Select cooordinate order to display  (1).</li>
+              <li>Press button Show nodes to (2).</li>
+              <li>Nodes for selected polygon will be displayed in chosen coordinate order in DMSH (degrees, minutes, seconds, hemisphere) format.</li>
+            </ol>
+          <img src="images/polygon_nodes_to_dms_usage.png" alt="" class="img_usage_steps">
+          <p>Notes: <br>
+            <ol>
+              <li>Nodes with DMSH string format are kept in memory layer.</li>
+              <li>Memory layer name is according to the following pattern:<br>
+                 <i>NodesDMS_[YYYY]_[MM]_[DD][HHMMSS.ssssss]</i> example: <i>NodesDMS_2021_04_08_204438.727141</i>.
+               </li>
+              <li>Each time Show nodes button is pressed memory all feature in memory layer are removed and new ones added for current selected polygon.</li>
+              <li>Memory layer example:</li>
+                <img src="images/polygon_nodes_to_dms_output_layer_example.png" alt="">
+            </ol>
+          </p>
+        <h2 id="usage_examples">Usage examples</h2>
+          <p>Cooridinate order Latitude, longitude</p>
+          <img src="images/polygon_nodes_to_dms_example_lat_lon.png" width="1000px" height="auto" alt="">
+          <p>Cooridinate order Longitude, latitude</p>
+          <img src="images/polygon_nodes_to_dms_example_lon_lat.png" width="1000px" height="auto" alt="">
+    </div>
+
+  </body>
+</html>
