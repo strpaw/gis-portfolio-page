@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>QGIS3 Plugin Airspace Geometry Builder help version 0.1</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="qgis-plugin-help-body">
+    <div id="help-header">
+      <h2 class="plugin-help-title">Airspace Geometry Builder</h2><span>&nbspversion 0.1</span>
+    </div>
+
+    <div id="help-menu" class="">
+      <h3>Table of contents</h3>
+      <ul class="help-menu-items">
+        <li><a href="#description">Description</a></li>
+        <li><a href="#common_airspaces">Common airspace shapes</a></li>
+        <li><a href="#create-airspace">Creating airspaces</a></li>
+        <ul class="help-menu-items">
+          <li><a href="#circle">Circle</a></li>
+          <li><a href="#circle-sector">Circle sector</a></li>
+          <li><a href="#circle-ring">Circle ring</a></li>
+          <li><a href="#circle-segment">Circle segment</a></li>
+          <li><a href="#circle-ring-sector">Circle ring sector</a></li>
+      </ul>
+    </div>
+
+    <div id="help-content""">
+      <h2 id="description">Description</h2>
+        <p>Common way to define lateral limits of airspace in aviation is not giving explicitly coordinates of points that describe
+        the shape of the airpsace, but using distances and bearings in reference to such points as naviagation aids or coordinates. </p>
+        <p>AirspaceGeomtryBuilder plugin speeds up airspace drawning due to skipping need of caluclating intermediate points and alllows use
+        directly values and relation that are given in airspace definition.</p>
+        <p>GitHub repository: <a href="https://github.com/strpaw/QGIS3-AirspaceGeometryBuilder">AirspaceGeomtryBuilder</a></p>
+      <h2 id="common_airspaces">Common airspace shapes</h2>
+
+      <h3>Circle</h3>
+      <ul>
+        <li>Defiend by:</li>
+          <ul>
+            <li>Circle center explicitly: longitude, latitude</li>
+            <li>Radius</li>
+          </ul>
+          <li>Or defiend by:</li>
+            <ul>
+              <li>Circle center implicitly as:</li>
+                <ul>
+                  <li>Refernce point coordinates: longitude, latitude</li>
+                  <li>Bearing from reference point</li>
+                  <li>Distance from reference point</li>
+                </ul>
+              <li>Circle radius</li>
+            </ul>
+        <li>Example definition:</li>
+        <p><i>Circle of radius 1.25NM centred around coordinate 112156N 0764548E.</i></p>
+        <p><i>Circle of radius 1.25NM centred around point defined by bearing 25 degrees 10 NM from point 110000N 0763000E.</i></p>
+      </ul>
+
+      <h3>Circle sector</h3>
+      <ul>
+        <li>An area bounded by two radii and the arc of a circle.</li>
+        <li>Defiend by:</li>
+          <ul>
+            <li>Circle center: longitude, latitude</li>
+            <li>Radius</li>
+            <li>From bearing, to bearing</li>
+          </ul>
+        <li>Example definition:</li>
+        <p><i>A Sector of circle of radius 1.25NM centred around coordinate 112156N 0764548E between clockwise bearings 060 to 170 degrees.</i></p>
+      </ul>
+
+      <h3>Circle segment</h3>
+      <ul>
+        <li>An area bounded by a chord of a circle and the arc of the circle.</li>
+        <li>Defiend by:</li>
+          <ul>
+            <li>Circle center: longitude, latitude</li>
+            <li>Radius</li>
+            <li>From bearing, to bearing</li>
+          </ul>
+        <li>Example definition:</li>
+        <p><i>Start at the point defined by bearing 70 degrees and 10 NM from point 500000N 0200000E, then along clockwise arc with radius 10 NM
+        from  point 500000N 0200000E to point defined bearing 145 degrees and 10 NM from point 500000N 0200000E, then the strait line to the start point.</i></p>
+      </ul>
+
+      <h3>Circle ring sector</h3>
+      <ul>
+        <li>The area bounded by two radii and two arcs of circle with the same center but different radii.</li>
+        <li>Defiend by:</li>
+          <ul>
+            <li>Circle center: longitude, latitude</li>
+            <li>Inner radius, outer radius</li>
+            <li>From bearing, to bearing</li>
+          </ul>
+        <li>Example definition:</li>
+        <p><i>Start at the point defined by bearing 70 degrees and 10 NM from point 500000N 0200000E, then along clockwise arc with radius 10 NM
+        from  point 500000N 0200000E to point defined bearing 145 degrees and 10 NM from point 500000N 0200000E, then the strait line to
+        the point defined by 145 degrees and 5 NM from point 500000N 0200000E, then along counter-clockwise arc with radius 15 NM
+        from  point 500000N 0200000E to the point defined by bearing 70 degrees and 5 NM from point 500000N 0200000E, then strait line to the start point.</i></p>
+      </ul>
+      </ul>
+      <h2 id="create-airspace">Creating airspaces</h2>
+
+      <h3 id="circle">Circle</h3>
+      <img src="images/airspace_geometry_builder_circle_input.png" alt="" class="img_desc_example">
+      <p>Input data:</p>
+      <img src="images/airspace_geometry_builder_circle_output.png" alt="" class="img_desc_example">
+      <p>Output:</p>
+      <img src="images/airspace_geometry_builder_circle2_input.png" alt="" class="img_desc_example">
+      <!-- Circle center defiend by: refernce point, distance, bearing -->
+      <p>Input data:</p>
+      <img src="images/airspace_geometry_builder_circle2_output.png" alt="" class="img_desc_example">
+      <h3 id="circle-sector">Circle sector</h3>
+      <p>Input data:</p>
+      <img src="images/airspace_geometry_builder_circle_sector_input.png" alt="" class="img_desc_example">
+      <p>Output:</p>
+      <img src="images/airspace_geometry_builder_circle_sector_output.png" alt="" class="img_desc_example">
+
+      <h3 id="circle-ring">Circle ring</h3>
+      <p>Input data:</p>
+      <img src="images/airspace_geometry_builder_circle_ring_input.png" alt="" class="img_desc_example">
+      <p>Output:</p>
+      <img src="images/airspace_geometry_builder_circle_ring_output.png" alt="" class="img_desc_example">
+
+      <h3 id="circle-segment">Circle segment</h3>
+      <p>Input data:</p>
+      <img src="images/airspace_geometry_builder_circle_segment_input.png" alt="" class="img_desc_example">
+      <p>Output:</p>
+      <img src="images/airspace_geometry_builder_circle_segment_output.png" alt="" class="img_desc_example">
+
+      <h3 id="circle-ring-sector">Circle ring sector</h3>
+      <p>Input data:</p>
+      <img src="images/airspace_geometry_builder_circle_ring_sector_input.png" alt="" class="img_desc_example">
+      <p>Output:</p>
+      <img src="images/airspace_geometry_builder_circle_ring_sector_output.png" alt="" class="img_desc_example">
+  </body>
+</html>
