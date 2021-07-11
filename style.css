@@ -155,3 +155,17 @@ background-position: center;
   margin-right: auto;
   /* width: 50%; */
 }
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #eee;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+}

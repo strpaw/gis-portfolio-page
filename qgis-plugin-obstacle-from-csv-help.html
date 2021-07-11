@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>QGIS3 Plugin ObstacleFromCSV help version 0.1</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="qgis-plugin-help-body">
+    <div id="help-header">
+      <h2 class="plugin-help-title">ObstacleFromCSV</h2><span>&nbspversion 0.1</span>
+    </div>
+
+    <div id="help-menu" class="">
+      <h3>Table of contents</h3>
+      <ul class="help-menu-items">
+        <li><a href="#description">Description</a></li>
+        <li><a href="#output_format">Output format</a></li>
+        <li><a href="#usage">Usage</a></li>
+      </ul>
+    </div>
+
+    <div id="help-content""">
+      <h2 id="description">Description</h2>
+      <p>ObstacleFromCSV plugin allows user to create shapfiles with predefined attributes based on data stored in CSV file.
+      In case there is no information for such attributes as country name, obstacle type and vertical unit there is option to assign those values
+      explicitly via plugin and entered values will be assign for all imported data.</p>
+      <p>GitHub repository: <a href="https://github.com/strpaw/QGIS3-Plugin-ObstacleFromCSV">ObstacleFromCSV</a></p>
+
+      <h2 id="output_format">Output format</h2>
+        <p>Imported data is saved to shapefile with following fields:</p>
+        <table>
+          <tr>
+            <th>Field name</th>
+            <th>Type</th>
+            <th>Length</th>
+            <th>Mandatory</th>
+          </tr>
+          <tr>
+            <td>ctry_name</td>
+            <td>string</td>
+            <td>150</td>
+            <td>Y</td>
+          </tr>
+          <tr>
+            <td>obst_ident</td>
+            <td>string</td>
+            <td>50</td>
+            <td>Y</td>
+          </tr>
+          <tr>
+            <td>obst_name</td>
+            <td>string</td>
+            <td>100</td>
+            <td>N</td>
+          </tr>
+          <tr>
+            <td>obst_type</td>
+            <td>string</td>
+            <td>30</td>
+            <td>Y</td>
+          </tr>
+          <tr>
+            <td>lon_src</td>
+            <td>string</td>
+            <td>30</td>
+            <td>Y</td>
+          </tr>
+          <tr>
+            <td>lat_src</td>
+            <td>string</td>
+            <td>30</td>
+            <td>Y</td>
+          </tr>
+          <tr>
+            <td>agl</td>
+            <td>real</td>
+            <td>-</td>
+            <td>Y</td>
+          </tr>
+          <tr>
+            <td>amsl</td>
+            <td>real</td>
+            <td>-</td>
+            <td>N</td>
+          </tr>
+          <tr>
+            <td>vert_uom</td>
+            <td>string</td>
+            <td>2</td>
+            <td>Y</td>
+          </tr>
+        </table>
+
+      <h2 id="usage">Usage</h2>
+      <p>Usually CSV input data file contains all information that will be storied in output file.<br>
+      In some cases input file might not have mandatory data such data as: country name, obstacle type, or vertical unit of measure (UOM).
+      or non mandatory data Obstacle name:
+      In that case user have to enter "missing" values via keyboard by:</p>
+      <ul>
+        <li>selecting <b>[Use value:]</b> and enter value if there is no data related to Country name, Obstacle type in input file:</li>
+        <img src="images/obstacle_from_csv_mandatory_fields_by_user.png" alt="" class="img_usage_steps">
+        <li>selecting <b>[Skip]</b> if there is no data related to Obstacle name in input file</li>
+        <img src="images/obstacle_from_csv_skip_obst_name.png" alt="" class="img_usage_steps">
+      </ul>
+
+      <p>To import obstacles from CSV that contain all fields that are in outut file follow these steps:</p>
+      <ol>
+        <li>Click button next to <b>Input file</b> field to select input data file.</li>
+        <li>Choose current field delimiter from <b>Delimiter</b> drop-down list.</li>
+        <li>Click button next to <b>Output file</b> field to select output data file.</li>
+        <li>If you want to add ouput data file to map automatically after import, check checkbox <b>Add file to map after import</b></li>
+        <li>Assign CSV fieds from input data file to fields in outpu file.</li>
+        <p>Note that CSV fields from data file will be automatically assigned to corresponding output field fields in case they have the same name.
+          Otherwise you have to do it manually after getting familiar with input data file structure.</p>
+        <li>To see import log click button below <b>Import log saved in:</b></li>
+      </ol>
+      <img src="images/obstacle_from_csv_usage.png" alt="" class="img_usage_steps">
+
+
+      <p>Exmaple import log:</p>
+      <pre class="log-example">
+2021-07-11 14:22:38.074168 | Line skipped. Input data error: Longitude error: 1211207.94S
+2021-07-11 14:22:38.081181 | Line skipped. Input data error: Amsl must be a number: 291S.
+2021-07-11 14:22:38.082165 | Line skipped. Input data error: Longitude error: 1211705.01N
+      </pre>
+
+  </body>
+</html>
