@@ -12,22 +12,391 @@
     <div id="help-menu" class="">
       <h3>Table of contents</h3>
       <ul class="help-menu-items">
-        <li><a href="#description">Description</a></li>
-        <li><a href="#usage">Usgae</a></li>
-        <ul class="help-menu-items">
-          <li><a href="#import_obstacles">Import obsacles from<br> Digital Obstacle File</a></li>
-          <li><a href="#insert_single_obstacle">Insert single obstacle</a></li>
-          <li><a href="#convert_dof">Convert Digital Obstacle File</a></li>
-        </ul>
         <li><a href="#obstacle_database">Obstace Database (PostGIS)</a></li>
         <ul class="help-menu-items">
-          <li><a href="#db_description">Descirption</a></li>
-          <li><a href="#db_tables">Tables</a></li>
+          <li><a href="#db_tables_desc">Tables description</a></li>
+            <ul class="help-menu-items">
+              <li><a href="#tb_hor_acc_desc">hor_acc</a></li>
+              <li><a href="#tb_lighting_desc">lighting</a></li>
+              <li><a href="#tb_marking_desc">marking</a></li>
+              <li><a href="#tb_obstacle_desc">obstacle</a></li>
+              <li><a href="#tb_obstacle_type_desc">obstacle_type</a></li>
+              <li><a href="#tb_us_state_desc">us_state</a></li>
+              <li><a href="#tb_verif_status_desc">verif_status</a></li>
+              <li><a href="#tb_vert_acc_desc">vert_acc</a></li>
+            </ul>
         </ul>
       </ul>
     </div>
 
     <div id="help-content" class="">
+
+
+      <h2 id="db_tables_desc">Tables description</h2>
+
+      <p id="tb_hor_acc_desc">hor_acc</p>
+      <table>
+
+        <thead>
+          <th>KEY</th>
+          <th>COLUMN NAME</th>
+          <th>DATA TYPE</th>
+          <th>NULLABLE</th>
+          <th>DEFAULT VALUE</th>
+          <th>DESCRIPTION</th>
+        </thead>
+
+        <tr>
+          <td>Primary key</td>
+          <td>hor_acc_code</td>
+          <td>int</td>
+          <td>No</td>
+          <td></td>
+          <td>horizontal accuracy code</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>tolerance_value</td>
+          <td>float</td>
+          <td>No</td>
+          <td></td>
+          <td>horizontal accuracy value</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>tolerance_uom</td>
+          <td>varchar(3)</td>
+          <td>No</td>
+          <td></td>
+          <td>horizontal accuracy unit of measure</td>
+        </tr>
+
+      </table>
+
+      <p id="tb_lighting_desc">lighting</p>
+
+      <table>
+
+        <thead>
+          <th>KEY</th>
+          <th>COLUMN NAME</th>
+          <th>DATA TYPE</th>
+          <th>NULLABLE</th>
+          <th>DEFAULT VALUE</th>
+          <th>DESCRIPTION</th>
+        </thead>
+
+        <tr>
+          <td>Primary key</td>
+          <td>lighting_code</td>
+          <td>char(1)</td>
+          <td>No</td>
+          <td></td>
+          <td>lighting code</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>lighting_desc</td>
+          <td>varchar(50)</td>
+          <td>No</td>
+          <td></td>
+          <td>lighting description</td>
+        </tr>
+
+      </table>
+
+
+      <p id="tb_marking_desc">marking</p>
+
+      <table>
+
+        <thead>
+          <th>KEY</th>
+          <th>COLUMN NAME</th>
+          <th>DATA TYPE</th>
+          <th>NULLABLE</th>
+          <th>DEFAULT VALUE</th>
+          <th>DESCRIPTION</th>
+        </thead>
+
+        <tr>
+          <td>Primary key</td>
+          <td>marking_code</td>
+          <td>char(1)</td>
+          <td>No</td>
+          <td></td>
+          <td>marking code</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>marking_desc</td>
+          <td>varchar(50)</td>
+          <td>No</td>
+          <td></td>
+          <td>marking description</td>
+        </tr>
+
+      </table>
+
+      <p id="tb_obstacle_desc">obstacle</p>
+
+      <table>
+
+        <thead>
+          <th>KEY</th>
+          <th>COLUMN NAME</th>
+          <th>DATA TYPE</th>
+          <th>NULLABLE</th>
+          <th>DEFAULT VALUE</th>
+          <th>DESCRIPTION</th>
+        </thead>
+
+        <tr>
+          <td>Primary key</td>
+          <td>rec_id</td>
+          <td>serial</td>
+          <td>No</td>
+          <td></td>
+          <td>record ident</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>state_id</td>
+          <td>int</td>
+          <td>No</td>
+          <td></td>
+          <td>State id.<br>
+        Foreign key to table us_state. Join:<br>
+        obstacle.state_id = us_state.state_id
+      </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>obst_ident</td>
+          <td>char(9)</td>
+          <td>No</td>
+          <td></td>
+          <td>obstacle identifier</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>lat_src</td>
+          <td>char(12)</td>
+          <td>No</td>
+          <td></td>
+          <td>obstacle latitude in format DD MM SS.s H</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>lon_src</td>
+          <td>char(13)</td>
+          <td>No</td>
+          <td></td>
+          <td>obstacle longitude</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>agl</td>
+          <td>float</td>
+          <td>No</td>
+          <td></td>
+          <td>height above ground level DD MM SS.s H</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>amsl</td>
+          <td>float</td>
+          <td>Yes</td>
+          <td></td>
+          <td>elevation avove mean sea level</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>vert_acc_code</td>
+          <td>char(1)</td>
+          <td>No</td>
+          <td></td>
+          <td>Vertical accuracy.<br>
+        Foreign key to table hor_acc. Join:<br>
+        obstacle.vert_acc_code = vert_acc.vert_acc_code
+      </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>hor_acc_code</td>
+          <td>int</td>
+          <td>No</td>
+          <td></td>
+          <td>Horizontal accuracy.<br>
+          Foreign key to table hor_acc. Join:<br>
+        obstacle.hor_acc_code = hor_acc.hor_acc_code
+      </td>
+        </tr>
+
+      </table>
+
+    <p id="tb_obstacle_type_desc">obstacle_type</p>
+
+    <table>
+
+      <thead>
+        <th>KEY</th>
+        <th>COLUMN NAME</th>
+        <th>DATA TYPE</th>
+        <th>NULLABLE</th>
+        <th>DEFAULT VALUE</th>
+        <th>DESCRIPTION</th>
+      </thead>
+
+      <tr>
+        <td>Primary key</td>
+        <td>obst_type_id</td>
+        <td>serial</td>
+        <td>No</td>
+        <td></td>
+        <td>obstacle type record ident</td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>obst_type</td>
+        <td>varchar(50)</td>
+        <td>No</td>
+        <td></td>
+        <td>obstacle type</td>
+      </tr>
+
+    </table>
+
+    <p id="tb_us_state_desc">us_state</p>
+
+      <table>
+
+        <thead>
+          <th>KEY</th>
+          <th>COLUMN NAME</th>
+          <th>DATA TYPE</th>
+          <th>NULLABLE</th>
+          <th>DEFAULT VALUE</th>
+          <th>DESCRIPTION</th>
+        </thead>
+
+        <tr>
+          <td>Primary key</td>
+          <td>state_id</td>
+          <td>serial</td>
+          <td>No</td>
+          <td></td>
+          <td>record ident</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>state_name</td>
+          <td>varchar(75)</td>
+          <td>No</td>
+          <td></td>
+          <td>state name</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>boundary</td>
+          <td>geography(POLYGON, 4326)</td>
+          <td>No</td>
+          <td></td>
+          <td>state geograhical boundaries</td>
+        </tr>
+
+      </table>
+
+      <p id="tb_verif_status_desc">verif_status</p>
+
+      <table>
+
+        <thead>
+          <th>KEY</th>
+          <th>COLUMN NAME</th>
+          <th>DATA TYPE</th>
+          <th>NULLABLE</th>
+          <th>DEFAULT VALUE</th>
+          <th>DESCRIPTION</th>
+        </thead>
+
+        <tr>
+          <td>Primary key</td>
+          <td>verif_status_code</td>
+          <td>char(1)</td>
+          <td>No</td>
+          <td></td>
+          <td>verification status code</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>status_desc</td>
+          <td>varchar(20)</td>
+          <td>No</td>
+          <td></td>
+          <td>verification status description</td>
+        </tr>
+
+      </table>
+
+      <p id="tb_vert_acc_desc">vert_acc</p>
+
+      <table>
+
+        <thead>
+          <th>KEY</th>
+          <th>COLUMN NAME</th>
+          <th>DATA TYPE</th>
+          <th>NULLABLE</th>
+          <th>DEFAULT VALUE</th>
+          <th>DESCRIPTION</th>
+        </thead>
+
+        <tr>
+          <td>Primary key</td>
+          <td>vert_acc_code</td>
+          <td>char(1)</td>
+          <td>No</td>
+          <td></td>
+          <td>vertical accuracy code</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>tolerance_value</td>
+          <td>float</td>
+          <td>No</td>
+          <td></td>
+          <td>vertical accuracy value</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>tolerance_uom</td>
+          <td>varchar(3)</td>
+          <td>No</td>
+          <td></td>
+          <td>vertical accuracy unit of measure</td>
+        </tr>
+
+      </table>
+
     </div>
   </body>
 </html>

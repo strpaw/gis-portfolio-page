@@ -169,3 +169,14 @@ td, th {
   text-align: left;
   padding: 10px;
 }
+
+#db-desc-table table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#db-desc-table th, td {
+  padding: 5px;
+}
+#db-desc-table th {
+  background-color: #eee;
+}
