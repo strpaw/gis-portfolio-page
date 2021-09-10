@@ -46,10 +46,10 @@
       <h3 id="convert_dof">Digital Obstacle File Conversion</h3>
 
       <h2 id="obstacle_database">Obstace Database (PostGIS)</h2>
-      
+
       <h3 id="db_tables_desc">Tables description</h3>
 
-      <p id="tb_hor_acc_desc">hor_acc</p>
+      <h4 id="tb_hor_acc_desc">hor_acc</h4>
       <table>
 
         <thead>
@@ -90,7 +90,7 @@
 
       </table>
 
-      <p id="tb_lighting_desc">lighting</p>
+      <h4 id="tb_lighting_desc">lighting</h4>
 
       <table>
 
@@ -124,7 +124,7 @@
       </table>
 
 
-      <p id="tb_marking_desc">marking</p>
+      <h4 id="tb_marking_desc">marking</h4>
 
       <table>
 
@@ -157,7 +157,7 @@
 
       </table>
 
-      <p id="tb_obstacle_desc">obstacle</p>
+      <h4 id="tb_obstacle_desc">obstacle</h4>
 
       <table>
 
@@ -255,14 +255,131 @@
           <td>No</td>
           <td></td>
           <td>Horizontal accuracy.<br>
-          Foreign key to table hor_acc. Join:<br>
-        obstacle.hor_acc_code = hor_acc.hor_acc_code
-      </td>
+            Foreign key to table hor_acc. Join:<br>
+            obstacle.hor_acc_code = hor_acc.hor_acc_code
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>quantity/td>
+          <td>int</td>
+          <td>Yes</td>
+          <td></td>
+          <td>Number of obstacles</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>marking_code</td>
+          <td>char(1)</td>
+          <td>No</td>
+          <td></td>
+          <td>Marking code<br>
+            Foreign key to table marking. Join:<br>
+            obstacle.marking_code = marking.marking_code
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>lighting_code</td>
+          <td>char(1)</td>
+          <td>No</td>
+          <td></td>
+          <td>lighting code<br>
+            Foreign key to table lighting. Join:<br>
+            obstacle.lighting_code = lighting.lighting_code
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>verif_status_code</td>
+          <td>char(1)</td>
+          <td>No</td>
+          <td></td>
+          <td>Verification status code<br>
+            Foreign key to table verif_status. Join:<br>
+            obstacle.verif_status_code = verif_status.verif_status_code
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>city_name</td>
+          <td>varchar(20)</td>
+          <td>Yes</td>
+          <td></td>
+          <td>City name related to the obstacle</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>faa_study_number</td>
+          <td>char(14)</td>
+          <td>Yes</td>
+          <td></td>
+          <td>FAA internal study number</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>julian_date</td>
+          <td>char(7)</td>
+          <td>Yes</td>
+          <td></td>
+          <td>Date of action</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>insert_tmsp</td>
+          <td>timestamptz</td>
+          <td>No</td>
+          <td>now()</td>
+          <td>Insert obstacle into database timestamp</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>insert_user</td>
+          <td>varcchar(10)</td>
+          <td>No</td>
+          <td>current_user</td>
+          <td>User name that inserted the obstacle</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>modification_tmsp</td>
+          <td>timestamptz</td>
+          <td>No</td>
+          <td>now()</td>
+          <td>Obstacle last modification timestamp</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>modification_user</td>
+          <td>varcchar(10)</td>
+          <td>No</td>
+          <td>current_user</td>
+          <td>User name that that made last modification</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>geo_location</td>
+          <td>geography(POINT, 4326))</td>
+          <td>No</td>
+          <td></td>
+          <td>Gegraphy location of the obstacle</td>
         </tr>
 
       </table>
 
-    <p id="tb_obstacle_type_desc">obstacle_type</p>
+    <h4 id="tb_obstacle_type_desc">obstacle_type</h4>
 
     <table>
 
@@ -295,7 +412,7 @@
 
     </table>
 
-    <p id="tb_us_state_desc">us_state</p>
+    <h4 id="tb_us_state_desc">us_state</h4>
 
       <table>
 
@@ -337,7 +454,7 @@
 
       </table>
 
-      <p id="tb_verif_status_desc">verif_status</p>
+      <h4 id="tb_verif_status_desc">verif_status</h4>
 
       <table>
 
@@ -370,7 +487,7 @@
 
       </table>
 
-      <p id="tb_vert_acc_desc">vert_acc</p>
+      <h4 id="tb_vert_acc_desc">vert_acc</h4>
 
       <table>
 
