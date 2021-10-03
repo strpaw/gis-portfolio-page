@@ -16,7 +16,7 @@
                 <ul class="help-menu-items">
                   <li><a href="#usage">Usage</a></li>
                     <ul class="help-menu-items">
-                      <li><a href="#import_obstacles">Import obsacles from<br> Digital Obstacle File</a></li>
+                      <li><a href="#import_obstacles">Import obstacles from<br> Digital Obstacle File</a></li>
                       <li><a href="#insert_single_obstacle">Insert single obstacle</a></li>
                       <li><a href="#convert_dof">Digital Obstacle File Conversion</a></li>
                     </ul>
@@ -52,7 +52,36 @@
           This plugin is designed to work with Obstacle Database based on PostGIS: obstacle_faa_dof.
           GitHub repository for plugin including scripts for database: <a href="https://github.com/strpaw/ObstacleDatabase_FAA_DOF">ObstacleDatabase_FAA_DOF</a>
         </p>
-      <h3 id="import_obstacles">Import obsacles from Digital Obstacle File</h3>
+      <h3 id="import_obstacles">Import obstacles from Digital Obstacle File</h3>
+      <p>To Import obstacle from FAA DOF into database:</p>
+       <p>Proces of importing consitos of two steps:</p>
+       <ol>
+         <li>Importing DOF into Database</li>
+         <li>Analyzing imported log file to check if some record were not imported and find out the reasn of that.</li>
+       </ol>
+
+       <h4>Importing DOF</h4>
+
+        <ol>
+          <li>Select Import DOF File tab.</li>
+          <li>Select FAA Digital Obstacle File to import.</li>
+          <li>Select file where to store log for imprted data. This log will contain infomration related only to those records <br>
+            that importing failed for reason such as: incorreced data (example coordinates) or validating database constraints (duplictaed key etc.)</li>
+          <li>Press Import button to start importing</li>
+        </ol>
+        <img src="images/obstacle_database_import_example.png" alt="" class="img_usage_steps">
+
+        <h4>Analyzing imported log file</h4>
+        <p>After import is completed, Import Show Log button will be enabled. <br>
+          Press Import Show Log button to open import log file. Information about not imported records are in log. Example:  </p>
+
+          <pre class="log-example">2021-10-03 20:00:38,066 | ERROR | dof_importer | import_dof | 34 | DOF file line number: 5 | Attribute hor_acc_code value error. invalid literal for int() with base 10: ' ' | Attribute vert_acc_code value error. Unknown vertical accuracy code. Actual value:
+2021-10-03 20:00:38,120 | ERROR | dof_importer | import_dof | 34 | DOF file line number: 10 | Attribute hor_acc_code value error. invalid literal for int() with base 10: ' ' | Attribute vert_acc_code value error. Unknown vertical accuracy code. Actual value:
+2021-10-03 20:00:38,163 | ERROR | dof_importer | import_dof | 41 | DOF file line number: 22 | BŁĄD:  Obstacle outside Alaska state!
+CONTEXT:  funkcja PL/pgSQL insert_obstacle(integer,character varying,integer,character,character,double precision,double precision,character,integer,character,character,character,character varying,double precision,double precision), wiersz 56 w RAISE
+ </pre>
+
+
       <h3 id="insert_single_obstacle">Insert single obstacle</h3>
       <h3 id="convert_dof">Digital Obstacle File Conversion</h3>
 
