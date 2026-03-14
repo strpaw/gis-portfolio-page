@@ -193,3 +193,20 @@ td, th {
     opacity: 0.8;
 	transform: scale(1.3);
 }
+
+
+.job-position {
+	font-weight: bold;
+}
+
+.job-period {
+	
+}
+
+.job-company {
+	font-style: italic;
+}
+
+.job-location {
+	font-style: italic;
+}
