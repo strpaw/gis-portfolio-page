@@ -8,27 +8,43 @@ body {
 }
 
 #home-header {
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
   background-color: #b3b3b3;
-  padding-top: 25px;
-  padding-bottom: 15px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding: 45px 40px 30px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 #home-title {
-  margin-top: 0px;
-  margin-bottom: 10px;
-  text-align: center;
+  margin: 0 0 20px;
   color: white;
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
+#home-summary {
+  max-width: 750px;
+  margin: 0 auto 25px;
+  color: white;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+
 #home-websites {
-  margin: 0px;
+  margin: 0;
   text-align: center;
-  color: blue;
-  font-size: 1.3em;
+  font-size: 1.2em;
+}
+
+#home-websites a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+#home-websites a:hover {
+  text-decoration: underline;
 }
 
 .navbar {
