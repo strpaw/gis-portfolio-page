@@ -33,16 +33,39 @@ body {
 
 .navbar {
   overflow: hidden;
-  background-color:  #ffffff;
+  background-color: #ffffff;
   position: fixed;
   top: 0;
-  width: 100%;
-  text-align: center;
+  left: 15%;
+  width: 70%;
+  z-index: 1000;
 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  padding: 0 20px;
+
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.navbar a {
-  display: inline-block;
+.navbar-name a {
+  display: block;
+  color: #4d4d4d;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 14px 0;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  display: block;
   color: #4d4d4d;
   text-align: center;
   padding: 14px 16px;
@@ -55,7 +78,7 @@ body {
 }
 
 .main {
-    margin-top: 30px;
+  margin-top: 60px;
 }
 
 .home-text {
