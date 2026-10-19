@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Airspace Geometry Builder - GIS Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-name">
+        Paweł Strzelewicz
+      </div>
+
+      <div class="navbar-links">
+        <a href="index.html">HOME</a>
+        <a href="maps.html">MAPS</a>
+        <a href="gis-tools-automation.html">GIS TOOLS &amp; AUTOMATION</a>
+        <a href="resume.html">RESUME</a>
+      </div>
+    </div>
+
+    <div class="main">
+
+      <section class="project-header">
+        <span class="project-type">QGIS PLUGIN</span>
+
+        <h1>Airspace Geometry Builder</h1>
+
+        <p class="project-subtitle">
+          Create aviation airspace geometries in QGIS directly
+          from bearings, distances and reference coordinates.
+        </p>
+
+        <div class="project-technologies">
+          Python &nbsp;·&nbsp; PyQGIS &nbsp;·&nbsp; QGIS
+        </div>
+      </section>
+
+      <main class="project-content">
+
+        <!-- The problem -->
+        <section class="project-section">
+          <h2>The problem</h2>
+
+          <p>
+            Aviation airspace definitions often describe boundaries
+            using bearings, distances and reference points rather
+            than explicitly listing every coordinate needed to
+            construct the geometry.
+          </p>
+
+          <p>
+            Creating these boundaries manually requires calculating
+            intermediate points and drawing the resulting shapes.
+            This can be time-consuming, particularly when working
+            with curved boundaries and complex airspace definitions.
+          </p>
+        </section>
+
+        <!-- The solution -->
+        <section class="project-section">
+          <h2>The solution</h2>
+
+          <p>
+            Airspace Geometry Builder is a QGIS plugin that generates
+            common airspace geometries from their defining parameters.
+            It supports circles, circle sectors, circle rings,
+            circle segments and circle ring sectors.
+          </p>
+
+          <p>
+            Instead of calculating every boundary coordinate manually,
+            users can enter the relevant reference coordinates,
+            bearings and distances to construct the required geometry.
+          </p>
+
+          <div class="project-workflow">
+            <div class="project-workflow-step">
+              Airspace definition
+            </div>
+
+            <div class="project-workflow-arrow">→</div>
+
+            <div class="project-workflow-step">
+              Bearings &amp; distances
+            </div>
+
+            <div class="project-workflow-arrow">→</div>
+
+            <div class="project-workflow-step">
+              GIS geometry
+            </div>
+          </div>
+        </section>
+
+        <!-- Value -->
+        <section class="project-section">
+          <h2>Value</h2>
+
+          <div class="project-values">
+
+            <div class="project-value">
+              <h3>Less manual calculation</h3>
+              <p>
+                Avoids manually calculating intermediate
+                coordinates for curved airspace boundaries.
+              </p>
+            </div>
+
+            <div class="project-value">
+              <h3>Faster geometry creation</h3>
+              <p>
+                Builds common airspace shapes directly from
+                their defining parameters.
+              </p>
+            </div>
+
+            <div class="project-value">
+              <h3>Workflow consistency</h3>
+              <p>
+                Uses a repeatable process for creating geometries
+                from bearings, distances and reference points.
+              </p>
+            </div>
+
+            <div class="project-value">
+              <h3>Native GIS workflow</h3>
+              <p>
+                Integrates airspace geometry construction into
+                the QGIS environment.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Examples -->
+        <section class="project-section">
+          <h2>Examples</h2>
+
+          <p>
+            The following examples illustrate the input parameters
+            and resulting geometries for the supported airspace shapes.
+          </p>
+
+          <h3>Circle sector</h3>
+
+          <p>Input data: centre, radius and angular limits.</p>
+          <img
+            src="images/automation-tools-use-cases/airspace_geometry_builder_circle_sector_input.png"
+            alt="Circle sector input parameters"
+            class="img_desc_example">
+
+          <p>Output: generated circle sector.</p>
+          <img
+            src="images/automation-tools-use-cases/airspace_geometry_builder_circle_sector_output.png"
+            alt="Generated circle sector geometry"
+            class="img_desc_example">
+
+          <h3>Circle ring</h3>
+
+          <p>Input data: centre and inner and outer radii.</p>
+          <img
+            src="images/automation-tools-use-cases/airspace_geometry_builder_circle_ring_input.png"
+            alt="Circle ring input parameters"
+            class="img_desc_example">
+
+          <p>Output: generated circle ring.</p>
+          <img
+            src="images/automation-tools-use-cases/airspace_geometry_builder_circle_ring_output.png"
+            alt="Generated circle ring geometry"
+            class="img_desc_example">
+
+          <h3>Circle ring sector</h3>
+
+          <p>Input data: centre, inner and outer radii, and angular limits.</p>
+          <img
+            src="images/automation-tools-use-cases/airspace_geometry_builder_circle_ring_sector_input.png"
+            alt="Circle ring sector input parameters"
+            class="img_desc_example">
+
+          <p>Output: generated circle ring sector.</p>
+          <img
+            src="images/automation-tools-use-cases/airspace_geometry_builder_circle_ring_sector_output.png"
+            alt="Generated circle ring sector geometry"
+            class="img_desc_example">
+        </section>
+
+        <!-- Project links -->
+        <section class="project-section project-section-last">
+          <div class="project-links">
+            <a
+              href="https://github.com/strpaw/QGIS3-AirspaceGeometryBuilder"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer">
+              GitHub
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+  </body>
+</html>
