@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Paweł Strzelewicz - GIS Portfolio</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  </head>
+  <body>
+
+	<div class="navbar">
+		<div class="navbar-name">
+			Paweł Strzelewicz
+		</div>
+
+	  <div class="navbar-links">
+		<a href="../../index.html">HOME</a>
+		<a href="../../maps/index.html">MAPS</a>
+		<a href="../index.html">GIS TOOLS &amp; AUTOMATION</a>
+		<a href="../../resume/index.html">RESUME</a>
+	  </div>
+
+	</div>
+
+	<div class="main">
+
+		<section class="project-header">
+			<span class="project-type">QGIS PLUGIN</span>
+			<h1>FAA DOF Manager</h1>
+			<p class="project-subtitle">
+				 Import, manage and convert FAA Digital Obstacle File data
+						using QGIS and a PostGIS database.
+			</p>
+			<div class="project-technologies">        Python &nbsp;·&nbsp; PyQGIS &nbsp;·&nbsp; QGIS&nbsp;·&nbsp; PostgreSQL &nbsp;·&nbsp; PostGIS</div>
+		</section>
+
+		<main class="project-content">
+
+			<section class="project-section">
+				<h2>The problem</h2>
+				<p>
+					Aeronautical obstacle data can be provided in different formats: CSV, DAT files, textual information (NOTAM, AIP).
+					Those data need to be imported, maintained and stored to support further analysis and data management.
+					Working with records from the
+            <a
+              href="https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dof/"
+              target="_blank"
+              rel="noopener noreferrer">
+              FAA Digital Obstacle File (DOF)
+            </a>
+            can involve repetitive data preparation and manual database operations.
+
+				</p>
+			</section>
+
+			<section class="project-section">
+
+				<h2>The solution</h2>
+
+				<p>
+					FAA DOF Manager is a QGIS plugin that connects
+					obstacle data workflows with a PostgreSQL database
+					using PostGIS. It supports importing FAA DOF data,
+					inserting individual obstacle records and updating
+					existing records directly from QGIS.
+				</p>
+
+				<div class="project-workflow">
+				  <div class="project-workflow-step">
+					DOF data (file, single obstacle)
+				  </div>
+				  <div class="project-workflow-arrow">
+					→
+				  </div>
+				  <div class="project-workflow-step">
+					FAA DOF Manager Plugin
+				  </div>
+				  <div class="project-workflow-arrow">
+					→
+				  </div>
+				  <div class="project-workflow-step">
+					Obstacle stored in PostGIS
+				  </div>
+				</div>
+		  	</section>
+
+			<section class="project-section">
+
+				<h2>Value</h2>
+
+                  <div class="project-value">
+                    <h3>Automated data import</h3>
+                    <p>
+                      Imports FAA Digital Obstacle File records into PostGIS,
+                      reducing manual data preparation.
+                    </p>
+                  </div>
+
+                  <div class="project-values">
+
+                    <div class="project-value">
+                      <h3>Data quality control</h3>
+                      <p>
+                        Identifies records that fail during import and provides
+                        error logs to support troubleshooting.
+                      </p>
+                    </div>
+
+				  <div class="project-value">
+					<h3>Faster data preparation</h3>
+					<p>
+					  Converts textual information into GIS data
+					  with fewer manual steps.
+					</p>
+				  </div>
+
+			  </section>
+
+			   <img src="images/qgis-plugin-faa-dof-manager.png" alt="" class="img_usage_steps">
+
+			  <section class="project-section project-section-last">
+				<div class="project-links">
+				  <a
+					href="https://github.com/strpaw/qgis3-faa-dof-postgis"
+					class="project-link"
+					target="_blank"
+					rel="noopener noreferrer">
+					GitHub
+				  </a>
+
+				</div>
+			  </section>
+
+
+
+		</main>
+
+	</div>
+
+  </body>
+</html>
