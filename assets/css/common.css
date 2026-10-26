@@ -1,0 +1,103 @@
+html {
+  font-size: 15px;
+}
+
+body {
+  margin: auto;
+}
+
+#home-header {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #b3b3b3;
+  padding: 45px 40px 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#home-title {
+  margin: 0 0 20px;
+  color: white;
+  font-size: 2.5em;
+}
+
+#home-summary {
+  max-width: 750px;
+  margin: 0 auto 25px;
+  color: white;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+
+#home-websites {
+  margin: 0;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+#home-websites a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+#home-websites a:hover {
+  text-decoration: underline;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  padding: 0 20px;
+
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-name a {
+  display: block;
+  color: #4d4d4d;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 14px 0;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  display: block;
+  color: #4d4d4d;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background: #b3b3b3;
+  color: white;
+}
+
+.main {
+  margin-top: 60px;
+}
+
+.home-text {
+  text-align: center;
+  color: #4d4d4d;
+  font-size: 1.2em;
+}
