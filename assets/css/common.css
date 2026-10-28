@@ -145,6 +145,12 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
+/* Highlight the current page */
+.navbar-links a.active {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
 /* =========================
    Main content
    ========================= */
