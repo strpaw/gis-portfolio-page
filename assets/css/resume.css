@@ -1,138 +1,261 @@
 
+/* =========================
+   Résumé layout
+   ========================= */
+
 .resume-container {
-  width: min(100% - 30px, 1000px);
-  margin: 60px auto 0;
-  padding: 0 0 60px;
+  width: min(calc(100% - 40px), 900px);
+  margin: 0 auto;
+  padding: 36px 0 80px;
 }
 
-.resume-title {
-  text-align: center;
-  color: #4d4d4d;
-  margin-bottom: 35px;
+.resume-section-heading {
+  margin: 42px 0 26px;
+  padding-bottom: 14px;
+
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+
+  font-size: 1.9rem;
+  font-weight: 750;
+  letter-spacing: -0.04em;
 }
 
-/* Individual job */
+.resume-section-heading:first-child {
+  margin-top: 0;
+}
+
+/* =========================
+   Work experience
+   ========================= */
 
 .job {
-  background-color: #ffffff;
-  border-left: 5px solid #4d4d4d;
-  padding: 20px 25px;
-  margin-bottom: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-radius: 4px;
+  position: relative;
+  margin-bottom: 24px;
+  padding: 26px 28px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  border-left: 3px solid #34465b;
+
+  transition: border-left-color 0.2s ease;
+}
+
+.job:hover {
+  border-left-color: var(--accent);
 }
 
 .job-position {
-  margin: 0 0 5px;
-  color: #333333;
-  font-size: 1.35em;
-  font-weight: bold;
+  margin: 0 0 8px;
+
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
 }
 
 .job-period {
-  color: #777777;
-  font-size: 0.95em;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+
+  color: var(--accent);
+  font-size: 0.86rem;
+  font-weight: 650;
 }
 
 .job-company {
-  color: #4d4d4d;
-  font-style: italic;
-  font-weight: bold;
+  display: inline-block;
+  margin-right: 10px;
+
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .job-location {
-  color: #777777;
-  font-style: italic;
+  display: inline-block;
+  color: var(--text-subtle);
+  font-size: 0.9rem;
 }
 
 .job-summary {
-  margin-top: 18px;
-  padding: 15px 18px;
-  background-color: #f2f2f2;
-  border-radius: 4px;
-  color: #4d4d4d;
-  line-height: 1.6;
+  margin: 16px 0;
+
+  color: var(--text-muted);
+  line-height: 1.8;
 }
 
-.job-summary-title {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 1em;
-  font-weight: bold;
-  color: #333333;
+.job-achievements {
+  margin-top: 20px;
 }
-
 
 .job-achievements-title {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 1em;
-  font-weight: bold;
-  color: #333333;
+  margin-bottom: 10px;
+
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 750;
+  letter-spacing: 0.025em;
 }
 
 .job-achievements ul {
   margin: 0;
-  padding-left: 22px;
+  padding-left: 21px;
+
+  color: var(--text-muted);
 }
 
 .job-achievements li {
-  margin-bottom: 8px;
-  line-height: 1.5;
+  padding-left: 4px;
+  margin-bottom: 9px;
+  line-height: 1.75;
+}
+
+.job-achievements li::marker {
+  color: var(--accent);
 }
 
 .job-tech {
-  margin-top: 15px;
-  color: #555555;
-  font-size: 0.95em;
+  margin-top: 22px;
+  padding-top: 16px;
+
+  color: var(--text-subtle);
+  border-top: 1px solid var(--border);
+
+  font-size: 0.85rem;
+  line-height: 1.85;
 }
 
 .job-tech strong {
-  color: #333333;
-}
-
-.job-achievements {
-  margin-top: 18px;
-  padding: 15px 18px;
-  background-color: #fafafa;
-  border-radius: 4px;
-  color: #4d4d4d;
+  color: var(--text);
+  font-weight: 650;
 }
 
 /* =========================
    Education
    ========================= */
 
+.education-section {
+  margin-top: 54px;
+}
+
 .education {
-  background-color: #ffffff;
-  border-left: 5px solid #4d4d4d;
-  padding: 20px 25px;
-  margin-bottom: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-radius: 4px;
+  margin-bottom: 16px;
+  padding: 22px 26px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 
 .education-degree {
-  margin: 0 0 5px;
-  color: #333333;
-  font-size: 1.35em;
-  font-weight: bold;
+  margin: 0 0 10px;
+
+  color: var(--text);
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .education-period {
-  color: #777777;
-  font-size: 0.95em;
   margin-bottom: 5px;
+
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 650;
 }
 
 .education-institution {
-  color: #4d4d4d;
-  font-style: italic;
-  font-weight: bold;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
-.education-location {
-  color: #777777;
-  font-style: italic;
+/* =========================
+   Responsive résumé
+   ========================= */
+
+@media (max-width: 600px) {
+  .resume-container {
+    width: calc(100% - 24px);
+    padding-top: 26px;
+  }
+
+  .resume-section-heading {
+    font-size: 1.65rem;
+  }
+
+  .job {
+    padding: 20px 18px;
+  }
+
+  .job-position {
+    font-size: 1.15rem;
+  }
+
+  .job-company,
+  .job-location {
+    display: block;
+  }
+
+  .job-location {
+    margin-top: 2px;
+  }
+
+  .education {
+    padding: 20px 18px;
+  }
+}
+
+/* Better printed résumé */
+
+@media print {
+  :root {
+    color-scheme: light;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --text: #111827;
+    --text-muted: #374151;
+    --text-subtle: #4b5563;
+    --border: #d1d5db;
+    --accent: #0f766e;
+  }
+
+  body {
+    background: #ffffff;
+    color: #111827;
+    font-size: 10pt;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .main {
+    padding-top: 0;
+  }
+
+  .resume-container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .job,
+  .education {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .job {
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+
+  .resume-section-heading {
+    margin-top: 24px;
+  }
+
+  a {
+    color: inherit;
+  }
 }
