@@ -1,69 +1,87 @@
-/* =========================
-   GIS Tools & Automation index page
-   ========================= */
-
-.tools-header {
-  width: 70%;
-  margin: 15px auto 0;
-  background-color: #b3b3b3;
-  padding: 45px 40px 30px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.tools-header h1 {
-  margin: 0 0 20px;
-  color: white;
-  font-size: 2.5em;
-  font-weight: normal;
-}
-
-.tools-header p {
-  max-width: 750px;
-  margin: 0 auto 25px;
-  color: white;
-  font-size: 1.2em;
-  line-height: 1.6;
-}
-
-.tools-technologies {
-  color: white;
-  font-size: 1.05em;
-}
 
 /* =========================
    GIS Tools & Automation
-   Groups
+   Page header
+   ========================= */
+
+.tools-header {
+  position: relative;
+  overflow: hidden;
+
+  width: min(calc(100% - 40px), var(--content-width));
+  margin: 0 auto;
+  padding: clamp(42px, 7vw, 72px) 32px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(45, 212, 191, 0.12),
+      transparent 70%
+    ),
+    var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.tools-header h1 {
+  margin: 0 0 18px;
+
+  color: #f8fafc;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+.tools-header p {
+  max-width: 720px;
+  margin: 0 auto 24px;
+
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.tools-technologies {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 2;
+}
+
+/* =========================
+   Project groups
    ========================= */
 
 .tools-group {
-  width: 70%;
+  width: min(calc(100% - 40px), var(--content-width));
   margin: 0 auto;
-  padding: 45px 0 20px;
+  padding: 64px 0 0;
 }
 
 .tools-group-header {
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .tools-group-header h2 {
   margin: 0 0 10px;
 
-  color: #333333;
-
-  font-size: 1.8em;
-  font-weight: bold;
+  color: var(--text);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
 }
 
 .tools-group-header p {
-  max-width: 750px;
-
+  max-width: 720px;
   margin: 0;
 
-  color: #666666;
-
-  font-size: 1.05em;
-  line-height: 1.6;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
 .tools-group-content {
@@ -71,69 +89,164 @@
 }
 
 /* =========================
-   GIS Tools - Project Cards
+   Project grid
    ========================= */
 
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 25px;
+  gap: 24px;
+  align-items: stretch;
 }
 
 .tool-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
   overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
 }
 
+.tool-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+}
+
+/* Project preview */
+
 .tool-image-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 240px;
+  padding: 14px;
+  overflow: hidden;
+
+  background: #0d1524;
+  border-bottom: 1px solid var(--border);
 }
 
 .tool-image-link img {
   display: block;
   width: 100%;
-  height: 230px;
+  height: 100%;
+
   object-fit: contain;
+
+  transition: transform 0.3s ease;
 }
 
+.tool-card:hover .tool-image-link img {
+  transform: scale(1.025);
+}
+
+/* Project description */
+
 .tool-card-content {
-  padding: 20px 22px 22px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 24px;
 }
 
 .tool-type {
   display: inline-block;
-  margin-bottom: 8px;
-  color: #777777;
-  font-size: 0.75em;
-  font-weight: bold;
-  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  padding: 4px 9px;
+
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid rgba(45, 212, 191, 0.18);
+  border-radius: 4px;
+
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
 }
 
 .tool-card h3 {
-  margin: 0 0 10px;
-  color: #333333;
-  font-size: 1.35em;
+  margin: 0 0 12px;
+
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
 }
 
 .tool-card p {
-  margin: 0 0 15px;
-  color: #555555;
-  line-height: 1.55;
+  margin: 0 0 18px;
+
+  color: var(--text-muted);
+  line-height: 1.75;
 }
 
 .tool-tech {
+  margin-top: auto;
   margin-bottom: 18px;
-  color: #777777;
-  font-size: 0.9em;
+  padding-top: 16px;
+
+  color: var(--text-subtle);
+  border-top: 1px solid var(--border);
+
+  font-size: 0.85rem;
+  line-height: 1.8;
 }
 
 .tool-link {
-  color: #4d4d4d;
-  font-weight: bold;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .tool-link:hover {
-  text-decoration: underline;
+  color: var(--accent-hover);
+}
+
+/* =========================
+   Responsive project grid
+   ========================= */
+
+@media (max-width: 700px) {
+  .tools-header,
+  .tools-group {
+    width: calc(100% - 24px);
+  }
+
+  .tools-header {
+    padding: 40px 20px;
+  }
+
+  .tools-group {
+    padding-top: 44px;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .tool-image-link {
+    height: 220px;
+  }
+
+  .tool-card-content {
+    padding: 20px;
+  }
 }
