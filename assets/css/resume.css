@@ -6,7 +6,7 @@
 .resume-container {
   width: min(calc(100% - 40px), 900px);
   margin: 0 auto;
-  padding: 36px 0 80px;
+  padding: calc(var(--nav-height) + 32px) 0 80px;
 }
 
 .resume-section-heading {
@@ -178,7 +178,7 @@
 @media (max-width: 600px) {
   .resume-container {
     width: calc(100% - 24px);
-    padding-top: 26px;
+    padding-top: calc(var(--nav-height) + 24px);
   }
 
   .resume-section-heading {
